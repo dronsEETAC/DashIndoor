@@ -177,7 +177,7 @@ El altímetro laser debe conectarse al puerto IC2 del autopiloto. A continuació
 | RNGFND1_POS_Z  | 0.064 |
 
 Si se ha realizado una correcta configuración, al conectar Mission Planner con el dron deberíamos poder leer los datos proporcionados por el altímetro en la pestaña Status, en el item sonargange.     
-![altimetro](https://github.com/dronsEETAC/DashIndoor/assets/100842082/259eb217-b6d9-4f5a-be2a-8b36f91248cf)
+![altimetro](https://github.com/dronsEETAC/DashIndoor/assets/100842082/259eb217-b6d9-4f5a-be2a-8b36f91248cf | width=100)
 
 ## Optical flow
 El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:
@@ -234,7 +234,8 @@ Como se ha indicado antes, el algoritmo EKF2 ya no está operativo en las versio
 
 En el caso de que se configura para usar el Optical Flow y no el GPS es necesario deshabilitar alguno de los pre-arm checks tal y como indica la figura.
 
-IMAGEN 3
+![checks](https://github.com/dronsEETAC/DashIndoor/assets/100842082/deb418b3-e39f-4c99-abe5-7c7b8271d644)
+
  
 
 Una vez realizadas todas estas configuraciones el dron debería armar en modo Loiter y deberíamos poder volarlo con buena estabilidad en interiores, usando la emisora de radio. Para ese escenario se recomienda tener configurado el modo Land para hacer que el dron aterrice inmediatamente en el punto que sobrevuela, el caso de que surja cualquier problema.
