@@ -160,7 +160,7 @@ posZ= msg.z # valores (metros) negativos para posiciones por encima del origen
 ## Configuraciones necesarias
 ### Altímetro laser
 La estimación de la altura puede mejorarse si se instala en el dron un altímetro laser, que es más preciso que el barómetro. El altímetro laser que usamos en nuestras instalaciones es el que se describe aquí:
-[Altímero Laser] (https://ardupilot.org/copter/docs/common-lightware-lw20-lidar.html)    
+[Altímero Laser](https://ardupilot.org/copter/docs/common-lightware-lw20-lidar.html)    
       
 El altímetro laser debe conectarse al puerto IC2 del autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:   
 
@@ -182,7 +182,7 @@ IMAGEN 1
 ## Optical flow
 El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:   
 
-[HereFlow] (https://ardupilot.org/copter/docs/common-hereflow.html)
+[HereFlow](https://ardupilot.org/copter/docs/common-hereflow.html)
     
 El Optical Flow debe conectarse al Puerto CAN2 de autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:   
 
@@ -203,34 +203,34 @@ El autopiloto tiene implementados varios algoritmos (que denominamos EK2 y EK3) 
      
 Se recomienda utilizar el algoritmo EK3, que es más avanzado. Además, como se indica más adelante, el algoritmo EK2 ya no está disponible en las versiones más actuales del firmware del autopiloto. En cualquier caso, indicamos aquí como debe hacerse la configuración tanto del EK2 como del EK3.   
 
-La configuración para el EKF2 es la siguiente:     
+La configuración para el EKF2 es la siguiente:    
 
-AHRS_EKF_TYPE	2 
-EK2_ENABLE	1 (después hay que reiniciar el autopiloto para acceder al resto de parámetros)
-EK2_IMU_MASK 	7 (este y los siguientes es para que use las tres IMUs)
-INS_USE	1
-INS_USE2	1
-INS_USE3	1
-EK2_ALT_SOURCE 	1 (para que use el altímetro laser en vez del barómetro)
-EK2_GPS_TYPE 	3 (Optical Flow) / 0 (GPS)    
+| Parámetro  | Valor |
+| ------------- | ------------- |
+| AHRS_EKF_TYPE	  | 2 |
+| EK2_ENABLE	  | 1 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes) |
+| EK2_IMU_MASK | 7 (este y los siguientes es para que use las tres IMUs) |
+| INS_USE | 1 |
+| INS_USE2 |1| 
+| INS_USE3 | 1|
+| EK2_ALT_SOURCE |1 (altímetro laser) / 0 (barómetro)| 
+| EK2_GPS_TYPE  | 3 (Optical Flow) / 0 (GPS)|
+
+
+
 
 
 Como se ha indicado antes, el algoritmo EKF2 ya no está operativo en las versiones más actuales del firmware del autopiloto (por ejemplo, ya no está en la versión 4.5.1). Para esas versiones más actuales debe usarse el EK3, cuya configuración se describe a continuación.  
-       
-AHRS_EKF_TYPE	3
-EK3_ENABLE	1 (después hay que reiniciar el autopiloto para acceder al resto de parámetros)
-EK3_SRC1_POSXY
-0 (Optical Flow) / 3 (GPS)
-EK3_SRC1_VELXY
-5 (Optical Flow) / 3 (GPS)
-EK3_SRC1_POSZ
-1 (Barómetro) / 2 (Altímetro laser)
-EK3_SRC1_VELZ
-0
-EK3_SRC1_YAW
-1 
-EK3_SRC_OPTIONS
-0
+
+| Parámetro  | Valor |
+| ------------- | ------------- |
+| AHRS_EKF_TYPE	  | 3 |
+| EK2_ENABLE	  | 1 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes) |
+| EK3_SRC1_POSXY | 0 (Optical Flow) / 3 (GPS) |
+| EK3_SRC1_VELXY | 5 (Optical Flow) / 3 (GPS) |
+| EK3_SRC1_POSZ |1 (Barómetro) / 2 (Altímetro laser)| 
+| EK3_SRC1_YAW | 1|
+| EK3_SRC_OPTIONS |0| 
 
 En el caso de que se configura para usar el Optical Flow y no el GPS es necesario deshabilitar alguno de los pre-arm checks tal y como indica la figura.
 
@@ -247,8 +247,7 @@ En este repositorio hay un ejemplo de aplicación que permite realizar algunas d
 3. Muestra el espacio de vuelo en el que señala la posición del dron en cada momento.
 4. Permite cambiar la velocidad del vuelo o la orientación del dron.
 5. Permite controlar la acción a realizar en caso de que el dron alcance los límites del espacio de vuelo
-6. Permite realizar la mayoría de las operaciones anteriores mediante voz.
-7.        
+6. Permite realizar la mayoría de las operaciones anteriores mediante voz.   
 La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio. REPO    
       
 Para poner en marcha DashIndoor es necesario instalar las siguientes librerías:    
@@ -262,7 +261,8 @@ pyserial
 pyAudio
 ```
 
-Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor. VIDEO 1
+Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor. VIDEO 1       
+    
 Aquí puede encontrarse un video que muestra cómo está organizado el código. VIDEO 2
 
 
