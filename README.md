@@ -235,7 +235,9 @@ En el caso de que se configura para usar el Optical Flow y no el GPS es necesari
 
 <img src="https://github.com/dronsEETAC/DashIndoor/assets/100842082/deb418b3-e39f-4c99-abe5-7c7b8271d644" width="400">
 
-Una vez realizadas todas estas configuraciones el dron debería armar en modo Loiter y deberíamos poder volarlo con buena estabilidad en interiores, usando la emisora de radio. Para ese escenario se recomienda tener configurado el modo Land para hacer que el dron aterrice inmediatamente en el punto que sobrevuela, el caso de que surja cualquier problema.
+Una vez realizadas todas estas configuraciones el dron debería armar en modo Loiter y deberíamos poder volarlo con buena estabilidad en interiores, usando la emisora de radio. Para ese escenario se recomienda tener configurado el modo Land para hacer que el dron aterrice inmediatamente en el punto que sobrevuela, el caso de que surja cualquier problema.    
+
+Este vídeo muestra el dron volando dentro de un polideportivo, con altímetro, optical flow y EF2. La imagen demuestra la excelente estabilidad del dron.  [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DemoVueloIndoor-pink.svg)](https://youtu.be/wDm37IpY2xA)  
 
 ## La aplicación DashIndoor
 Naturalmente, lo interesante del escenario que se ha descrito es poder desarrollar ahora aplicaciones para controlar el vuelo del dron, por ejemplo, mediante una botonera para hacerlo despegar o volar en una determinada dirección, o incluso guiarlo con la voz o con las poses del cuerpo, como se hace en varias de las aplicaciones del Drone Engineering Ecosystem pensadas para escenarios con cobertura GPS.      
@@ -261,8 +263,8 @@ pyserial
 pyAudio
 ```
 
-Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorDemo-pink.svg)](https://youtu.be/MWoIC6T-5m4)       
+Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorDemo-pink.svg)](https://youtu.be/UrXpTRGf6qs)       
     
-Aquí puede encontrarse un video que muestra cómo está organizado el código [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorCodigo-pink.svg)](https://youtu.be/MWoIC6T-5m4)       
+Aquí puede encontrarse un video que muestra cómo está organizado el código [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorCodigo-pink.svg)](https://youtu.be/zKJqazb2_RY)       
     
 
