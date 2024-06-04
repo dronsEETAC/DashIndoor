@@ -24,6 +24,41 @@ La señal GPS permite al dron establecer un marco de referencia (que llamamos gl
 
 En el caso de un espacio interior al que no llega la señal GPS, el dron establece un marco de referencia local, apoyándose en la información que le proporciona el Optical Flow. Por una parte, el magnetómetro interno del autopiloto le permite saber dónde está el Norte, incluso en un espacio interior al que no llega la señal GPS.  Por otra parte, al iniciarse el autopiloto establece como posición inicial (Home) la posición xyz = (0,0,0). La información que le proporciona el Optical Flow y el altímetro laser (o barómetro) permite ubicar cualquier posición xyz en ese marco local y volar hacia esa posición, o volar en una dirección determinada, si es instruido para ello. De hecho, de todos los comandos mostrados en la tabla 1, el único que no puede ejecutar es el primero, puesto que no tiene información sobre latitudes y longitudes.    
 
+<table>
+<tr>
+<td> Status </td> <td> Response </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td>
+
+↑ Blank line!
+```json
+json
+{
+    "id": 10,
+    "username": "alanpartridge",
+    "email": "alan@alan.com",
+    "password_hash": "$2a$10$uhUIUmVWVnrBWx9rrDWhS.CPCWCZsyqqa8./whhfzBZydX7yvahHS",
+    "password_salt": "$2a$10$uhUIUmVWVnrBWx9rrDWhS.",
+    "created_at": "2015-02-14T20:45:26.433Z",
+    "updated_at": "2015-02-14T20:45:26.540Z"
+}
+```
+↓ Blank line!
+
+</td>
+</tr>
+<tr>
+<td> 400 </td>
+<td>
+
+**Markdown** _here_. (↕︎ Blank lines above and below!)
+
+</td>
+</tr>
+</table>
+
 | Tabla 1: Comandos para dirigir el dron |
 | --- |
 | <code>{<br> 
