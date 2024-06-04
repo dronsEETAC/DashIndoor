@@ -167,51 +167,44 @@ El altímetro laser debe conectarse al puerto IC2 del autopiloto. A continuació
 | Parámetro  | Valor |
 | ------------- | ------------- |
 | RNGFND1_TYPE  | 7 (LightWareI2C) |
-| RNGFND1_ADDR  | 102 (I2C Address of lidar in decimal) |
+| RNGFND1_ADDR  | 102 |
 | RNGFND1_SCALING   | 1 |
 | RNGFND1_MIN_CM  | 5 |
-| RNGFND1_MAX_CM   | 9500 (This is the distance in centimeters that the rangefinder can reliably read)| | RNGFND1_GNDCLEAR   | 15 (Distance in centimetres from the range finder to the ground when the vehicle is landed. This value depends on how you have mounted the rangefinder)) |
-| RNGFND1_POS_X  | 0.119 (Distance in centimetres from the range finder to the center of the autopilot, in dimensions XYZ. These values depend on how you have mounted the rangefinder) |
+| RNGFND1_MAX_CM   | 9500 (Distancia en cm en la que el altímetro puede operar)| 
+| RNGFND1_GNDCLEAR   | 15 (Distancia en cm del altímetro al suelo, que dependerá de cómo se ha instalado el altímetro en el dron) |
+| RNGFND1_POS_X  | 0.119 (Distancia en cm del altímetro hasta el centro del autopiloto, en las dimensiones XYZ, que dependerán de cómo se a instalado el altímetro en el dron)|
 | RNGFND1_POS_Y  | 0.043 |
 | RNGFND1_POS_Z  | 0.064 |
 
-
-
-
-
-102 (I2C Address of lidar in decimal)
-RNGFND1_SCALING 
-1
-RNGFND1_MIN_CM 
-5
-RNGFND1_MAX_CM 
-9500 (This is the distance in centimeters that the rangefinder can reliably read)
-RNGFND1_GNDCLEAR 
-15 (Distance in centimetres from the range finder to the ground when the vehicle is landed. This value depends on how you have mounted the rangefinder)
-RNGFND1_POS_X 	0.119 (Distance in centimetres from the range finder to the center of the autopilot, in dimensions XYZ. These values depend on how you have mounted the rangefinder)
-RNGFND1_POS_Y 	0.043
-RNGFND1_POS_Z 	0.064
-
 Si se ha realizado una correcta configuración, al conectar Mission Planner con el dron deberíamos poder leer los datos proporcionados por el altímetro en la pestaña Status, en el item sonargange.
-	 
+IMAGEN 1
 
-Optical flow
-El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:
-https://ardupilot.org/copter/docs/common-hereflow.html
-El Optical Flow debe conectarse al Puerto CAN2 de autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:
-CAN_P2_DRIVER 	1 
-FLOW_TYPE 	6 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes)
-FLOW_POS_X	0.119 (Distance in centimetres from the optical flow to the center of the autopilot, in dimensions XYZ. These values depend on how you have mounted the optical flow)
-FLOW_POS_Y	0 
-FLOW_POS_Z 	0.064 
+## Optical flow
+El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:   
 
- 	Si se ha realizado una correcta configuración, al conectar Mission Planner con el dron deberíamos poder leer los datos proporcionados por el Optical flow en la pestanya Status
+[HereFlow] (https://ardupilot.org/copter/docs/common-hereflow.html)
+    
+El Optical Flow debe conectarse al Puerto CAN2 de autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:   
 
+| Parámetro  | Valor |
+| ------------- | ------------- |
+| CAN_P2_DRIVER  | 1 |
+| FLOW_TYPE  | 6 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes) |
+| FLOW_POS_X | 0.119 (Distancia en cm del optical flow hasta el centro del autopiloto, en las dimensiones XYZ, que dependerán de cómo se a instalado el optical flow en el dron) |
+| FLOW_POS_Y | 0 |
+| FLOW_POS_Z |0.064| 
 
-Configuración del EKF (Extended Kalman Filter)
-El autopiloto tiene implementados varios algoritmos (que denominamos EK2 y EK3) que usan el filtro de Kalman para estimar la posición, velocidad y orientación del dron. Esos algoritmos utilizan la información proporcionada por los sensores. Es necesario ahora indicar al autopiloto que algoritmo debe usar y qué sensores debe usar ese algoritmo.
-Se recomienda utilizar el algoritmo EK3, que es más avanzado. Además, como se indica más adelante, el algoritmo EK2 ya no está disponible en las versiones más actuales del firmware del autopiloto. En cualquier caso, indicamos aquí como debe hacerse la configuración tanto del EK2 como del EK3.
-La configuración para el EKF2 es la siguiente:
+Si se ha realizado una correcta configuración, al conectar Mission Planner con el dron deberíamos poder leer los datos proporcionados por el Optical flow en la pestanya Status
+
+IMAGEN 2
+
+## Configuración del EKF (Extended Kalman Filter)
+El autopiloto tiene implementados varios algoritmos (que denominamos EK2 y EK3) que usan el filtro de Kalman para estimar la posición, velocidad y orientación del dron. Esos algoritmos utilizan la información proporcionada por los sensores. Es necesario ahora indicar al autopiloto que algoritmo debe usar y qué sensores debe usar ese algoritmo.     
+     
+Se recomienda utilizar el algoritmo EK3, que es más avanzado. Además, como se indica más adelante, el algoritmo EK2 ya no está disponible en las versiones más actuales del firmware del autopiloto. En cualquier caso, indicamos aquí como debe hacerse la configuración tanto del EK2 como del EK3.   
+
+La configuración para el EKF2 es la siguiente:     
+
 AHRS_EKF_TYPE	2 
 EK2_ENABLE	1 (después hay que reiniciar el autopiloto para acceder al resto de parámetros)
 EK2_IMU_MASK 	7 (este y los siguientes es para que use las tres IMUs)
@@ -219,9 +212,11 @@ INS_USE	1
 INS_USE2	1
 INS_USE3	1
 EK2_ALT_SOURCE 	1 (para que use el altímetro laser en vez del barómetro)
-EK2_GPS_TYPE 	3 (Optical Flow) / 0 (GPS) 
-Con todas estas configuraciones, para poder armar he tenido que deshabilitar todos los preAlarm checks. Pero seguro que esa deshabilitación puede hacerse de forma más selectiva. Hay que investigar eso.
-Como se ha indicado antes, el algoritmo EKF2 ya no está operativo en las versiones más actuales del firmware del autopiloto (por ejemplo, ya no está en la versión 4.5.1). Para esas versiones más actuales debe usarse el EK3, cuya configuración se describe a continuación. 
+EK2_GPS_TYPE 	3 (Optical Flow) / 0 (GPS)    
+
+
+Como se ha indicado antes, el algoritmo EKF2 ya no está operativo en las versiones más actuales del firmware del autopiloto (por ejemplo, ya no está en la versión 4.5.1). Para esas versiones más actuales debe usarse el EK3, cuya configuración se describe a continuación.  
+       
 AHRS_EKF_TYPE	3
 EK3_ENABLE	1 (después hay que reiniciar el autopiloto para acceder al resto de parámetros)
 EK3_SRC1_POSXY
@@ -237,22 +232,27 @@ EK3_SRC1_YAW
 EK3_SRC_OPTIONS
 0
 
-En el caso de que se configura para usar el Optical Flow y no el GPS es necesario deshabilitar alguno de los pre-arm checks tal y como indica la figura:
+En el caso de que se configura para usar el Optical Flow y no el GPS es necesario deshabilitar alguno de los pre-arm checks tal y como indica la figura.
+
+IMAGEN 3
  
 
 Una vez realizadas todas estas configuraciones el dron debería armar en modo Loiter y deberíamos poder volarlo con buena estabilidad en interiores, usando la emisora de radio. Para ese escenario se recomienda tener configurado el modo Land para hacer que el dron aterrice inmediatamente en el punto que sobrevuela, el caso de que surja cualquier problema.
 
-La aplicación DashIndoor
+## La aplicación DashIndoor
 Naturalmente, lo interesante del escenario que se ha descrito es poder desarrollar ahora aplicaciones para controlar el vuelo del dron, por ejemplo, mediante una botonera para hacerlo despegar o volar en una determinada dirección, o incluso guiarlo con la voz o con las poses del cuerpo, como se hace en varias de las aplicaciones del Drone Engineering Ecosystem pensadas para escenarios con cobertura GPS.
-En este repositorio hay un ejemplo de aplicación que permite realizar algunas de estas funciones. De llama DashIndoor y sus características principales son:
-Permite definir las dimensiones del espacio de vuelo
-Dispone de un conjunto de botones para conectar, armar, despegar, mover el dron en diferentes direcciones (adelante, atrás, etc.) o aterrizarlo.
-Muestra el espacio de vuelo en el que señala la posición del dron en cada momento.
-Permite cambiar la velocidad del vuelo o la orientación del dron.
-Permite controlar la acción a realizar en caso de que el dron alcance los límites del espacio de vuelo
-Permite realizar la mayoría de las operaciones anteriores mediante voz.
-La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio.
-Para poner en marcha DashIndoor es necesario instalar las siguientes librerías:
+En este repositorio hay un ejemplo de aplicación que permite realizar algunas de estas funciones. De llama DashIndoor y sus características principales son:    
+1. Permite definir las dimensiones del espacio de vuelo
+2. Dispone de un conjunto de botones para conectar, armar, despegar, mover el dron en diferentes direcciones (adelante, atrás, etc.) o aterrizarlo.
+3. Muestra el espacio de vuelo en el que señala la posición del dron en cada momento.
+4. Permite cambiar la velocidad del vuelo o la orientación del dron.
+5. Permite controlar la acción a realizar en caso de que el dron alcance los límites del espacio de vuelo
+6. Permite realizar la mayoría de las operaciones anteriores mediante voz.
+7.        
+La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio. REPO    
+      
+Para poner en marcha DashIndoor es necesario instalar las siguientes librerías:    
+```
 Pymavlink
 SpeechRecognition
 gTTS
@@ -260,7 +260,9 @@ pygame
 pillow
 pyserial
 pyAudio
-Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor.
-Aquí puede encontrarse un video que muestra cómo está organizado el código.
+```
+
+Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor. VIDEO 1
+Aquí puede encontrarse un video que muestra cómo está organizado el código. VIDEO 2
 
 
