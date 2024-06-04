@@ -238,15 +238,17 @@ En el caso de que se configura para usar el Optical Flow y no el GPS es necesari
 Una vez realizadas todas estas configuraciones el dron debería armar en modo Loiter y deberíamos poder volarlo con buena estabilidad en interiores, usando la emisora de radio. Para ese escenario se recomienda tener configurado el modo Land para hacer que el dron aterrice inmediatamente en el punto que sobrevuela, el caso de que surja cualquier problema.
 
 ## La aplicación DashIndoor
-Naturalmente, lo interesante del escenario que se ha descrito es poder desarrollar ahora aplicaciones para controlar el vuelo del dron, por ejemplo, mediante una botonera para hacerlo despegar o volar en una determinada dirección, o incluso guiarlo con la voz o con las poses del cuerpo, como se hace en varias de las aplicaciones del Drone Engineering Ecosystem pensadas para escenarios con cobertura GPS.
+Naturalmente, lo interesante del escenario que se ha descrito es poder desarrollar ahora aplicaciones para controlar el vuelo del dron, por ejemplo, mediante una botonera para hacerlo despegar o volar en una determinada dirección, o incluso guiarlo con la voz o con las poses del cuerpo, como se hace en varias de las aplicaciones del Drone Engineering Ecosystem pensadas para escenarios con cobertura GPS.      
+
 En este repositorio hay un ejemplo de aplicación que permite realizar algunas de estas funciones. De llama DashIndoor y sus características principales son:    
 1. Permite definir las dimensiones del espacio de vuelo
 2. Dispone de un conjunto de botones para conectar, armar, despegar, mover el dron en diferentes direcciones (adelante, atrás, etc.) o aterrizarlo.
 3. Muestra el espacio de vuelo en el que señala la posición del dron en cada momento.
 4. Permite cambiar la velocidad del vuelo o la orientación del dron.
 5. Permite controlar la acción a realizar en caso de que el dron alcance los límites del espacio de vuelo
-6. Permite realizar la mayoría de las operaciones anteriores mediante voz.   
-La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio. REPO    
+6. Permite realizar la mayoría de las operaciones anteriores mediante voz.
+7. 
+La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DronLib-blue.svg)](https://github.com/dronsEETAC/ObjectRecognitionWithNN)   
       
 Para poner en marcha DashIndoor es necesario instalar las siguientes librerías:    
 ```
@@ -259,8 +261,8 @@ pyserial
 pyAudio
 ```
 
-Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor. VIDEO 1       
+Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de DashIndoor [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorDemo-pink.svg)](https://youtu.be/MWoIC6T-5m4)       
     
-Aquí puede encontrarse un video que muestra cómo está organizado el código. VIDEO 2
-
+Aquí puede encontrarse un video que muestra cómo está organizado el código [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorCodigo-pink.svg)](https://youtu.be/MWoIC6T-5m4)       
+    
 
