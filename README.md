@@ -195,7 +195,8 @@ El Optical Flow debe conectarse al Puerto CAN2 de autopiloto. A continuación, d
 
 Si se ha realizado una correcta configuración, al conectar Mission Planner con el dron deberíamos poder leer los datos proporcionados por el Optical flow en la pestanya Status
 
-IMAGEN 2
+![opticalFlow](https://github.com/dronsEETAC/DashIndoor/assets/100842082/c74b9afe-95d7-4f93-9714-2e434c0649a4)
+
 
 ## Configuración del EKF (Extended Kalman Filter)
 El autopiloto tiene implementados varios algoritmos (que denominamos EK2 y EK3) que usan el filtro de Kalman para estimar la posición, velocidad y orientación del dron. Esos algoritmos utilizan la información proporcionada por los sensores. Es necesario ahora indicar al autopiloto que algoritmo debe usar y qué sensores debe usar ese algoritmo.     
