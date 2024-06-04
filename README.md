@@ -180,8 +180,7 @@ Si se ha realizado una correcta configuración, al conectar Mission Planner con 
 IMAGEN 1
 
 ## Optical flow
-El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:   
-
+El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:
 [HereFlow](https://ardupilot.org/copter/docs/common-hereflow.html)
     
 El Optical Flow debe conectarse al Puerto CAN2 de autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:   
@@ -252,7 +251,7 @@ La aplicación utiliza la librería DronLib, que está en desarrollo y que prete
       
 Para poner en marcha DashIndoor es necesario instalar las siguientes librerías:    
 ```
-Pymavlink
+pymavlink
 SpeechRecognition
 gTTS
 pygame
