@@ -250,7 +250,7 @@ En este repositorio hay un ejemplo de aplicación que permite realizar algunas d
 5. Permite controlar la acción a realizar en caso de que el dron alcance los límites del espacio de vuelo
 6. Permite realizar la mayoría de las operaciones anteriores mediante voz.
 7. 
-La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DronLib-blue.svg)](https://github.com/dronsEETAC/ObjectRecognitionWithNN)   
+La aplicación utiliza la librería DronLib, que está en desarrollo y que pretende reemplazar a Dronekit, que no es operativa en versiones actuales del intérprete de Python. Más detalles de DronLib pueden encontrarse en este repositorio [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DronLib-blue.svg)]()   
       
 Para poner en marcha DashIndoor es necesario instalar las siguientes librerías:    
 ```
