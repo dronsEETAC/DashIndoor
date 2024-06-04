@@ -26,7 +26,7 @@ En el caso de un espacio interior al que no llega la señal GPS, el dron estable
 
 <table>
 <tr>
-<td> Tabla 1: Comandos para dirigir el dron</td> 
+<td> <b> Tabla 1: Comandos para dirigir el dron </b></td> 
 </tr>
 <tr>
 <td>
@@ -46,71 +46,75 @@ vehicle.mav.send(
 <tr>
 <td> El dron se dirige a la posición geográfica definida por (lat, lon, alt) en el marco de referencia global. </td>
 </tr>
-</table>
 
-| Tabla 1: Comandos para dirigir el dron |
-| --- |
-| <code>{<br> 
+
+<tr>
+<td>
+
+```
 vehicle.mav.send(
-    	mavutil.mavlink.MAVLink_set_position_target_global_int_message(
-10, vehicle.target_system, vehicle.target_component,
-mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
-int(0b110111111000), 
-int(lat * 10 ** 7),int(lon * 10 ** 7), alt,
-0, 0, 0, 0, 0, 0, 0, 0)
-<br>}</code>| 
-| El dron se dirige a la posición geográfica definida por (lat, lon, alt) en el marco de referencia global. |
-| ```
-vehicle.mav.send(
-mavutil.mavlink.MAVLink_set_position_target_local_ned_message(
+        mavutil.mavlink.MAVLink_set_position_target_local_ned_message(
     	10, vehicle.target_system, vehicle.target_component,
     	mavutil.mavlink.MAV_FRAME_LOCAL_NED,  # frame
     	0b110111111000,  
     	x,
     	y,
     	z,
-0, 0, 0, 0, 0, 0, 0, 0)
-```|
-| El dron se dirige a la posición xyz en el marco de referencia local, en el que el punto (0,0,0) es en ocupado por el dron en el momento de iniciar el autopiloto. El valor de x se entenderá como metros en dirección Norte (o Sur si x es negativo), el valor de y son metros en la dirección Este (u Oeste si y es negativo) y el valor de z se entiende como altitud en metros (atención porque valores negativos implican posiciones por encima de la altura 0). |
-| ```
+        0, 0, 0, 0, 0, 0, 0, 0)
+```
+
+</td>
+</tr>
+<tr>
+<td> El dron se dirige a la posición xyz en el marco de referencia local, en el que el punto (0,0,0) es en ocupado por el dron en el momento de iniciar el autopiloto. El valor de x se entenderá como metros en dirección Norte (o Sur si x es negativo), el valor de y son metros en la dirección Este (u Oeste si y es negativo) y el valor de z se entiende como altitud en metros (atención porque valores negativos implican posiciones por encima de la altura 0). </td>
+</tr>
+
+<tr>
+<td>
+
+```
 vehicle.mav.send(
-mavutil.mavlink.MAVLink_set_position_target_local_ned_message(
+        mavutil.mavlink.MAVLink_set_position_target_local_ned_message(
     	10, vehicle.target_system, vehicle.target_component,
     	mavutil.mavlink.MAV_FRAME_LOCAL_OFFSET_NED,  # frame
     	0b110111111000,  
     	x,
     	y,
     	z,
-0, 0, 0, 0, 0, 0, 0, 0)
-``` |
-| El dron se desplaza, respecto a la posición que ocupa, x metros hacia el Norte (o sur si negativo), y metros hacia el Este (u oeste si negativo) y z metros hacia abajo (o hacia arriba si es negativo).  |
-| ```
+        0, 0, 0, 0, 0, 0, 0, 0)
+```
+
+</td>
+</tr>
+<tr>
+<td> El dron se desplaza, respecto a la posición que ocupa, x metros hacia el Norte (o sur si negativo), y metros hacia el Este (u oeste si negativo) y z metros hacia abajo (o hacia arriba si es negativo). </td>
+</tr>
+
+<tr>
+<td>
+
+```
 vehicle.mav.send(
-mavutil.mavlink.MAVLink_set_position_target_local_ned_message(
+        mavutil.mavlink.MAVLink_set_position_target_local_ned_message(
     	10, vehicle.target_system, vehicle.target_component,
     	mavutil.mavlink.MAV_FRAME_BODY_OFFSET_NED,  # frame
     	0b110111111000,  
     	x,
     	y,
     	z,
-0, 0, 0, 0, 0, 0, 0, 0)
-``` |
-| El dron se desplaza, respecto a la posición que ocupa, x metros hacia el delante (o atrás si negativo), y metros hacia la derecha (o izquierda si negativo) y z metros hacia abajo (o hacia arriba si es negativo). 
- |
+        0, 0, 0, 0, 0, 0, 0, 0)
+```
+
+</td>
+</tr>
+<tr>
+<td> El dron se desplaza, respecto a la posición que ocupa, x metros hacia el delante (o atrás si negativo), y metros hacia la derecha (o izquierda si negativo) y z metros hacia abajo (o hacia arriba si es negativo).  </td>
+</tr>
+
+</table>
 
 
-
-
-
-
-
-
-
-
-
-
-
-Telemetría
+## Telemetría
 Normalmente, nuestros programas van a necesitar datos de telemetría (posición, heading, etc.) para facilitar al usuario la interacción con el dron (por ejemplo, para mostrar en un plano la posición que ocupa el dron en cada momento).
 Para hacer que el dron nos envíe datos de telemetría es necesario ejecutar los comandos pymavlink siguiente:
 frequency_hz = 4 # enviará 4 paquetes de datos cada Segundo
