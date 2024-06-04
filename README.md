@@ -177,7 +177,7 @@ El altímetro laser debe conectarse al puerto IC2 del autopiloto. A continuació
 | RNGFND1_POS_Z  | 0.064 |
 
 Si se ha realizado una correcta configuración, al conectar Mission Planner con el dron deberíamos poder leer los datos proporcionados por el altímetro en la pestaña Status, en el item sonargange.     
-<img src="https://github.com/dronsEETAC/DashIndoor/assets/100842082/259eb217-b6d9-4f5a-be2a-8b36f91248cf" width="400">
+<img src="https://github.com/dronsEETAC/DashIndoor/assets/100842082/259eb217-b6d9-4f5a-be2a-8b36f91248cf" width="400" height = "800">
 
 ## Optical flow
 El Optical Flow nos permite proporcionar al dron información de desplazamientos en el plano xy, en ausencia de señal GPS. El Optical flow que usamos en nuestras instalaciones es el descrito aquí:
