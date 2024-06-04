@@ -26,7 +26,7 @@ En el caso de un espacio interior al que no llega la señal GPS, el dron estable
 
 | Tabla 1: Comandos para dirigir el dron |
 | --- |
-| ```
+| <code>{<br> 
 vehicle.mav.send(
     	mavutil.mavlink.MAVLink_set_position_target_global_int_message(
 10, vehicle.target_system, vehicle.target_component,
@@ -34,7 +34,7 @@ mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
 int(0b110111111000), 
 int(lat * 10 ** 7),int(lon * 10 ** 7), alt,
 0, 0, 0, 0, 0, 0, 0, 0)
-``` | 
+<br>}</code>| 
 | El dron se dirige a la posición geográfica definida por (lat, lon, alt) en el marco de referencia global. |
 | ```
 vehicle.mav.send(
