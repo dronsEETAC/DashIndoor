@@ -115,8 +115,10 @@ vehicle.mav.send(
 
 
 ## Telemetría
-Normalmente, nuestros programas van a necesitar datos de telemetría (posición, heading, etc.) para facilitar al usuario la interacción con el dron (por ejemplo, para mostrar en un plano la posición que ocupa el dron en cada momento).
-Para hacer que el dron nos envíe datos de telemetría es necesario ejecutar los comandos pymavlink siguiente:
+Normalmente, nuestros programas van a necesitar datos de telemetría (posición, heading, etc.) para facilitar al usuario la interacción con el dron (por ejemplo, para mostrar en un plano la posición que ocupa el dron en cada momento).     
+      
+Para hacer que el dron nos envíe datos de telemetría es necesario ejecutar los comandos pymavlink siguiente:     
+```
 frequency_hz = 4 # enviará 4 paquetes de datos cada Segundo
 # para recibir datos del marco global (por ejemplo, latitudes y longitudes)
 self.vehicle.mav.command_long_send(
@@ -137,8 +139,11 @@ self.vehicle.mav.command_long_send(
     0, 0, 0, 0,  # Unused parameters
     0
 )
+```
+   
+A partir de este momento podemos solicitar paquetes de datos de telemetría. Los que nos interesan más son los siguientes:     
 
-A partir de este momento podemos solicitar paquetes de datos de telemetría. Los que nos interesan más son los siguientes:
+```
 msg = vehicle.recv_match(type='GLOBAL_POSITION_INT', blocking= True)
 msg = msg.to_dict()
 lat = float(msg['lat'] / 10 ** 7)
@@ -146,21 +151,34 @@ lon = float(msg['lon'] / 10 ** 7)
 alt = float(msg['relative_alt']/1000)
 heading = float(msg['hdg'] / 100)
 
-
 msg = vehicle.recv_match(type='LOCAL_POSITION_NED', blocking=True)
 posX = msg.x # valores (metros) positivos hacia el Norte y negativos hacia el SUR
 posY= msg.y # valores (metros) positivos hacia el Este y negativos hacia el Oeste
 posZ= msg.z # valores (metros) negativos para posiciones por encima del origen
+```
 
-Configuraciones necesarias
-Altímetro laser
-La estimación de la altura puede mejorarse si se instala en el dron un altímetro laser, que es más preciso que el barómetro.
-El altímetro laser que usamos en nuestras instalaciones es el que se describe aquí:
-https://ardupilot.org/copter/docs/common-lightware-lw20-lidar.html
-El altímetro laser debe conectarse al puerto IC2 del autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:
-RNGFND1_TYPE
-7 (LightWareI2C)
-RNGFND1_ADDR 
+## Configuraciones necesarias
+### Altímetro laser
+La estimación de la altura puede mejorarse si se instala en el dron un altímetro laser, que es más preciso que el barómetro. El altímetro laser que usamos en nuestras instalaciones es el que se describe aquí:
+[Altímero Laser] (https://ardupilot.org/copter/docs/common-lightware-lw20-lidar.html)    
+      
+El altímetro laser debe conectarse al puerto IC2 del autopiloto. A continuación, deben ajustarse los valores de algunos parámetros, según indica la tabla siguiente:   
+
+| Parámetro  | Valor |
+| ------------- | ------------- |
+| RNGFND1_TYPE  | 7 (LightWareI2C) |
+| RNGFND1_ADDR  | 102 (I2C Address of lidar in decimal) |
+| RNGFND1_SCALING   | 1 |
+| RNGFND1_MIN_CM  | 5 |
+| RNGFND1_MAX_CM   | 9500 (This is the distance in centimeters that the rangefinder can reliably read)| | RNGFND1_GNDCLEAR   | 15 (Distance in centimetres from the range finder to the ground when the vehicle is landed. This value depends on how you have mounted the rangefinder)) |
+| RNGFND1_POS_X  | 0.119 (Distance in centimetres from the range finder to the center of the autopilot, in dimensions XYZ. These values depend on how you have mounted the rangefinder) |
+| RNGFND1_POS_Y  | 0.043 |
+| RNGFND1_POS_Z  | 0.064 |
+
+
+
+
+
 102 (I2C Address of lidar in decimal)
 RNGFND1_SCALING 
 1
