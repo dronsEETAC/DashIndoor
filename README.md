@@ -26,31 +26,27 @@ En el caso de un espacio interior al que no llega la señal GPS, el dron estable
 
 <table>
 <tr>
-<td> Status </td> <td> Response </td>
+<td> Tabla 1: Comandos para dirigir el dron</td> 
 </tr>
 <tr>
-<td> 200 </td>
 <td>
 
 ↑ Blank line!
-```json
-json
-{
-    "id": 10,
-    "username": "alanpartridge",
-    "email": "alan@alan.com",
-    "password_hash": "$2a$10$uhUIUmVWVnrBWx9rrDWhS.CPCWCZsyqqa8./whhfzBZydX7yvahHS",
-    "password_salt": "$2a$10$uhUIUmVWVnrBWx9rrDWhS.",
-    "created_at": "2015-02-14T20:45:26.433Z",
-    "updated_at": "2015-02-14T20:45:26.540Z"
-}
+```
+vehicle.mav.send(
+    	mavutil.mavlink.MAVLink_set_position_target_global_int_message(
+10, vehicle.target_system, vehicle.target_component,
+mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
+int(0b110111111000), 
+int(lat * 10 ** 7),int(lon * 10 ** 7), alt,
+0, 0, 0, 0, 0, 0, 0, 0)
 ```
 ↓ Blank line!
 
 </td>
 </tr>
 <tr>
-<td> 400 </td>
+<td> El dron se dirige a la posición geográfica definida por (lat, lon, alt) en el marco de referencia global. </td>
 <td>
 
 **Markdown** _here_. (↕︎ Blank lines above and below!)
