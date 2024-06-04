@@ -267,4 +267,5 @@ Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de 
     
 Aquí puede encontrarse un video que muestra cómo está organizado el código [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorCodigo-pink.svg)](https://youtu.be/zKJqazb2_RY)       
     
+Aquí puede encontrarse un video que muestra la aplicación operando con un dron real dentro de un polideportivo [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorPolideportivo-pink.svg)](https://youtu.be/SU8w5XN9dQw)   
 
