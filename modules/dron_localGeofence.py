@@ -6,13 +6,10 @@ def _inGeofence (self, position = None):
     if position == None:
         position = self.position
     if abs(position[0]) < self.localGeofence[0] // 2 and \
-        abs(position[1]) < self.localGeofence[1] // 2 :
-            '''     and \
-            position[2] < self.localGeofence[2] and position[2] > 0:
-            '''
+        abs(position[1]) < self.localGeofence[1] // 2  and \
+        position[2] < self.localGeofence[2] and position[2] > 0:
             return True
     else:
-            print ('BREACHHHHHHHH')
             return False
 
 def _goToLastPositionBeforeLocalGeofenceBreach (self):
@@ -42,15 +39,20 @@ def _localGeofenceCheck (self):
                 if self.localGeofenceBreachAction == 2:
                     # para aterrizar tengo que cambiar el modo via RC_override
                     # Asumo que Land está configurado como modo 6 en los modos de vuelo
-                    self.send_rc(rcin5=1800)
-                    self.status_loop(3)
+                    #self.send_rc(rcin5=1800)
+                    #self.status_loop(3)
+
+                    # aterrizamos
+                    print ('aterrizamos')
+                    self.Land ()
 
                 elif self.localGeofenceBreachAction == 3:
                     '''self.clear_motion ()
                     self.status_loop(3)'''
-                    self._goToLastPositionBeforeLocalGeofenceBreach()
+                    #self._goToLastPositionBeforeLocalGeofenceBreach()
 
-                    #self.RTL (blocking = False)
+                    print('retornamos')
+                    self.RTL (blocking = False)
                 if self.localGeofenceBreachCallback != None:
                     if self.id == None:
                         if  self.localGeofenceBreachCallbackParams == None:

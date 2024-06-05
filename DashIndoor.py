@@ -248,6 +248,9 @@ def notify_breach ():
     global mapa, area
     # simplemente pongo en rojo grueso los bordes del área de vuelo
     mapa.itemconfig(area, outline='red', width=15)
+    # restituyo el color del ultimo boton que se pulsó
+    lastButton['bg'] = 'orange',
+    lastButton['fg'] = 'black'
     if talking:
         ttt.talk('Te sales de los límites')
 

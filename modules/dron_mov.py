@@ -118,10 +118,11 @@ def _move(self, direction, callback=None, params = None):
 
     arrived = False
     while not arrived:
+
         distance = self._distance(destX,destY,destZ, self.position[0], self.position[1], self.position[2])
         if distance < 0.2:
             arrived = True
-        time.sleep(1)
+        time.sleep(0.25)
 
     # meter aqui un bucle esperando hasta que haya llegado
     if callback != None:
@@ -213,7 +214,7 @@ def _distance(self, destX, destY, destZ, posX, posY, posZ):
     dx = destX - posX
     dy = destY - posY
     dz = destZ - posZ
-    return math.sqrt((dx*dx) + (dy*dy))
+    return math.sqrt((dx*dx) + (dy*dy) + (dz*dz))
 
 
 def _moveto (self, destination, callback=None, params = None):
@@ -221,7 +222,6 @@ def _moveto (self, destination, callback=None, params = None):
     destX = destination [0]
     destY= destination[1]
     destZ = destination[2]
-    print ('2 vamos a ', destination)
     self.vehicle.mav.send(self.cmd)
     arrived = False
     while not arrived:
@@ -230,7 +230,7 @@ def _moveto (self, destination, callback=None, params = None):
         #distance = self._distance (position[0], position[1], position[2], msg.x, msg.y, msg.z)
         if distance < 0.2:
             arrived = True
-        time.sleep (1)
+        time.sleep (0.25)
 
     if callback != None:
         if self.id == None:
