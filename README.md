@@ -224,7 +224,7 @@ Como se ha indicado antes, el algoritmo EKF2 ya no está operativo en las versio
 | Parámetro  | Valor |
 | ------------- | ------------- |
 | AHRS_EKF_TYPE	  | 3 |
-| EK2_ENABLE	  | 1 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes) |
+| EK3_ENABLE	  | 1 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes) |
 | EK3_SRC1_POSXY | 0 (Optical Flow) / 3 (GPS) |
 | EK3_SRC1_VELXY | 5 (Optical Flow) / 3 (GPS) |
 | EK3_SRC1_POSZ |1 (Barómetro) / 2 (Altímetro laser)| 
