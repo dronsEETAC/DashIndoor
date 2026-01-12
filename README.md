@@ -189,7 +189,7 @@ El Optical Flow debe conectarse al Puerto CAN2 de autopiloto. A continuación, d
 | ------------- | ------------- |
 | CAN_P2_DRIVER  | 1 |
 | FLOW_TYPE  | 6 (después de esto reiniciar el autopiloto para acceder a los parámetros restantes) |
-| FLOW_POS_X | 0.119 (Distancia en cm del optical flow hasta el centro del autopiloto, en las dimensiones XYZ, que dependerán de cómo se a instalado el optical flow en el dron) |
+| FLOW_POS_X | 0.119 (Distancia en metros del optical flow hasta el centro del autopiloto, en las dimensiones XYZ, que dependerán de cómo se a instalado el optical flow en el dron) |
 | FLOW_POS_Y | 0 |
 | FLOW_POS_Z |0.064| 
 
@@ -268,4 +268,5 @@ Aquí pueden encontrarse un video que demuestra brevemente el funcionamiento de 
 Aquí puede encontrarse un video que muestra cómo está organizado el código [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorCodigo-pink.svg)](https://youtu.be/zKJqazb2_RY)       
     
 Aquí puede encontrarse un video que muestra la aplicación operando con un dron real dentro de un polideportivo [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-DashIndoorPolideportivo-pink.svg)](https://youtu.be/SU8w5XN9dQw)   
+
 
